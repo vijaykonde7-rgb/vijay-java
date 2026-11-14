@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class Demo
+{
+    int x;
+
+public:
+
+    // Default Constructor
+    Demo()
+    {
+        x = 10;
+    }
+
+    // Parameterized Constructor
+    Demo(int a)
+    {
+        x = a;
+    }
+
+    // Copy Constructor
+    Demo(Demo &d)
+    {
+        x = d.x;
+    }
+
+    // Function Overloading
+    int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    float add(float a, float b)
+    {
+        return a + b;
+    }
+
+    // Returning by Reference
+    int& getValue()
+    {
+        return x;
+    }
+
+    void display()
+    {
+        cout << "Value = " << x << endl;
+    }
+};
+
+int main()
+{
+    Demo d1;
+    Demo d2(20);
+    Demo d3(d2);
+
+    cout << "Default Constructor: ";
+    d1.display();
+
+    cout << "Parameterized Constructor: ";
+    d2.display();
+
+    cout << "Copy Constructor: ";
+    d3.display();
+
+    cout << "\nFunction Overloading:" << endl;
+    cout << "Addition of integers = "
+         << d1.add(5, 10) << endl;
+
+    cout << "Addition of floats = "
+         << d1.add(2.5f, 3.5f) << endl;
+
+    cout << "\nReturning by Reference:" << endl;
+    d1.getValue() = 50;
+    d1.display();
+
+    return 0;
+}
